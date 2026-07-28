@@ -323,19 +323,13 @@ def get_custom_fields():
 
 def make_fixtures():
 	records = [
-		# expense claim type
-		{"doctype": "Expense Claim Type", "name": _("Calls"), "expense_type": _("Calls")},
-		{"doctype": "Expense Claim Type", "name": _("Food"), "expense_type": _("Food")},
-		{"doctype": "Expense Claim Type", "name": _("Medical"), "expense_type": _("Medical")},
-		{"doctype": "Expense Claim Type", "name": _("Others"), "expense_type": _("Others")},
-		{"doctype": "Expense Claim Type", "name": _("Travel"), "expense_type": _("Travel")},
-		# vehicle service item
-		{"doctype": "Vehicle Service Item", "service_item": "Brake Oil"},
-		{"doctype": "Vehicle Service Item", "service_item": "Brake Pad"},
-		{"doctype": "Vehicle Service Item", "service_item": "Clutch Plate"},
-		{"doctype": "Vehicle Service Item", "service_item": "Engine Oil"},
-		{"doctype": "Vehicle Service Item", "service_item": "Oil Change"},
-		{"doctype": "Vehicle Service Item", "service_item": "Wheels"},
+		# NOVITYNZ PATCH (2026-07-28): "Expense Claim Type" and "Vehicle Service
+		# Item" doctypes no longer exist in current frappe/erpnext version-15 --
+		# confirmed removed upstream, not a mirror error. hrms's version-15 and
+		# version-15-hotfix branches both still reference them, causing a hard
+		# install failure. Removed here since neither is needed for staff
+		# rostering (our actual purpose for installing hrms); not a permanent
+		# design decision -- revisit if/when hrms catches up upstream.
 		# leave type
 		{
 			"doctype": "Leave Type",
